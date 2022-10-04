@@ -17,7 +17,7 @@ resource "aws_instance" "myec2" {
   ami           = data.aws_ami.ami.id
   subnet_id = aws_subnet.subnet-web[0].id
   security_groups = ["${aws_security_group.sg.id}"]
-  user_data = file(userdata.sh)
+  user_data ="${file("userdata.sh")}"
 }
 
 resource "aws_security_group" "sg" {
